@@ -23,7 +23,7 @@ such that it is easier for researchers to find the right system for the right pu
 For each system,
 click its name to find out more about that system.
 
-{% assign columns = "System name,Status,Category,Focus,Focus area,Grouping,Funders,Nodes,Accelerators,Accelerator count per node,Memory bandwidth,Memory bandwidth benchmark,Floating point performance,Floating point performance precision,Floating point benchmark,I/O bandwidth,I/O bandwidth benchmark,Manufacturer,Scheduler,Interconnects,Reference" | split: "," %}
+{% assign columns = "System name,Status,Category,Focus,Focus area,Grouping,Funders,Nodes,Accelerators,Accelerator count per node,Memory bandwidth,Memory bandwidth benchmark,Floating point performance,Floating point performance precision,Floating point benchmark,I/O bandwidth,I/O bandwidth benchmark,Manufacturer,Scheduler,Interconnects,Available profilers,Module environment,Software installation method,Reference" | split: "," %}
 
 <p style="margin-bottom: 0px; padding-bottom: 0px;">
   <a class="toggle-visibility-controls">
@@ -92,6 +92,9 @@ click its name to find out more about that system.
       <td>{{ partition.manufacturer }}</td>
       <td>{{ partition.scheduler }}</td>
       <td>{{ system.interconnects | join: "<br>" }}</td>
+      <td>{{ system.profilers | join: ",<br>" }}</td>
+      <td>{{ system.modules }}</td>
+      <td>{{ system.software-installation | join: ",<br>" }}</td>
       <td><a href="{{ system.reference }}">Link</a></td>
     </tr>
       {% endfor %}
@@ -119,6 +122,9 @@ click its name to find out more about that system.
     <th>&nbsp;</th> <!-- Manufacturer -->
     <th>&nbsp;</th> <!-- Scheduler -->
     <th aria-label="Empty table footer for Interconnects column"></th>
+    <th aria-label="Empty table footer for Profilers column"></th>
+    <th>&nbsp;</th> <!-- Module environment -->
+    <th aria-label="Empty table footer for Software installation method column"></th>
     <th aria-label="Empty table footer for Reference column"></th>
   </tfoot>
 </table>
