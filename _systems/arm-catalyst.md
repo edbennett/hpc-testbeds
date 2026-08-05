@@ -16,7 +16,7 @@ partitions:
   scheduler: unknown
 - nodes: unknown
   accelerator: NVIDIA V100
-  acceleratr-count: 2
+  accelerator-count: 2
   manufacturer: HPE
   scheduler: unknown
 interconnects:
