@@ -10,8 +10,7 @@ funders:
 - DiRAC
 - ExCALIBUR
 partitions:
-partitions:
-- name: "cosma8-shm"
+- name: "cosma8-shm/Adaptable Memory System"
   nodes: 2
   accelerator: "NVIDIA A100 40GB"
   accelerator-count: 1
@@ -25,7 +24,7 @@ partitions:
       array_size: 134217728
       iterations: 100
       precision: FP64
-- name: "mad06"
+- name: "mad06/Adaptable Memory System"
   nodes: 1
   accelerator: "NVIDIA A100 40GB"
   accelerator-count: 1
@@ -51,9 +50,25 @@ The A100 nodes are GPU testbeds within COSMA.
 
 The A100 GPUs (3 total) are connected via a Liqid composable fabric, allowing them to be moved between these nodes. The default configuration is 1 GPU per node. To request a different configuration, contact cosma-support@durham.ac.uk.
 
+### Adaptable Memory System
+
+These nodes additionally host 15TB of Intel Optane storage modules
+(32 &times; 480GB).
+This may be moved on request between the nodes,
+up to a maximum number of modules per node.
+Typically the storage is mounted as swap space on each of the three nodes;
+this can be reconfigured as disk on request.
+To request a different configuration,
+contact cosma-support@durham.ac.uk.
+
+It was previously possiblie to mount the storage as memory on these nodes;
+support for this was removed in an operating system upgrade,
+so this is no longer possible.
+
 ### Documentation
 
 - <https://cosma.readthedocs.io/en/latest/gpu.html#using-the-composable-a100-gpus>
+- <https://cosma.readthedocs.io/en/latest/composable.html#liqid-system>
 - <https://cosma.readthedocs.io/en/latest/cosma.html>
 - <https://www.nvidia.com/en-gb/data-center/a100> 
 
