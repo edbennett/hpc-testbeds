@@ -92,6 +92,12 @@ nvidia-smi # checks existence of GPU
 
 For mad06, connect directly via SSH from a login node: `ssh mad06`
 
+nvidia-specific compilers and tools can be loaded from the `nvhpc` module on cosma.
+To load this module, check available versions with:
+```module av nvhpc```
+Then load the desired version with:
+```module load nvhpc/VERSION```
+
 ### Restrictions
 
 - Maximum wall time: 3 days
