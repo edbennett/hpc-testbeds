@@ -24,7 +24,7 @@ partitions:
       iterations: 100
       precision: FP64
 interconnects:
-reference: https://cosma.readthedocs.io/en/latest/gpu.html#mi300a 
+reference: https://cosma.readthedocs.io/en/latest/amdgpu.html#mi300a 
 ---
 
 ## COSMA MI300A
@@ -43,6 +43,7 @@ The MI300A node has 4x GPUs.
 
 ### Documentation
 
+- <https://cosma.readthedocs.io/en/latest/amdgpu.html#mi300a>
 - <https://cosma.readthedocs.io/en/latest/gpu.html#mi300a>
 - <https://www.amd.com/en/products/accelerators/instinct/mi300/mi300a.html>
 
@@ -70,9 +71,16 @@ rocm-smi
 ./gpu_program_to_run
 ```
 
+The AMD ROCm stack can be loaded from the `hipcc` module on cosma.
+To load this module, check available versions with:
+```module av hipcc```
+Then load the desired version with:
+```module load hipcc/VERSION```
+
+If your codebase is based on CUDA, you can convert this to HIP using the `hipify` script provided with ROCm.
+
+
 ### Restrictions
 
 - `/cosma5/` is not mounted on ga008. Copy binaries to your home directory first.
-- Nodes are non-exclusive by default (shared with other users). Use `--exclusive` if you require the entire node
-- The AMD ROCm software stack is installed. ROCm 7.2.0 is available at `/opt/rocm-7.2.0/bin/hipcc`
-- CUDA code must be converted to HIP using the `hipify` script provided with ROCm
+- ga008 is a shared resource, please be mindful of other users when running codes.  Use `top` to see running processes or `users` to see who else is logged in.
