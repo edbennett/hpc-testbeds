@@ -73,7 +73,7 @@ Contact cosma-support@durham.ac.uk for any questions.
 
 ### Usage
 
-For gn002, connect directly via SSH from a login node: `ssh mad06`
+For gn002, connect directly via SSH from a login node: `ssh gn002`
 
 For gn003, jobs are submitted via Slurm to the `gracehopper` partition:
 ```bash
