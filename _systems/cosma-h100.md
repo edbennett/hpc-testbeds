@@ -68,7 +68,13 @@ nvidia-smi
 ./gpu_program_to_run
 ```
 
+nvidia-specific compilers and tools can be loaded from the `nvhpc` module on cosma.
+To load this module, check available versions with:
+```module av nvhpc```
+Then load the desired version with:
+```module load nvhpc/VERSION```
+
+
 ### Restrictions
 
-- Shared resource. Before running large jobs, check if others are using the nodes. Access is SSH only, so there is no SLURM queue
-- CUDA is available via `module load nvhpc/25.11`
+- Shared resource. Before running large jobs, check if others are using the nodes. Access is SSH only, so there is no SLURM queue.  Check running processes using `top`, or logged-in users using `users`
