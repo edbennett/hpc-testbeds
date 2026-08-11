@@ -24,7 +24,7 @@ partitions:
       iterations: 100
       precision: FP64
 interconnects:
-reference: https://cosma.readthedocs.io/en/latest/gpu.html
+reference: https://cosma.readthedocs.io/en/latest/amdgpu.html
 ---
 
 ## COSMA MI210
@@ -42,6 +42,7 @@ The MI210 is built to accelerate deep learning training via mixed-precision capa
 
 ### Documentation
 
+- <https://cosma.readthedocs.io/en/latest/amdgpu.html>
 - <https://cosma.readthedocs.io/en/latest/gpu.html>
 - <https://www.amd.com/en/products/accelerators/instinct/mi200/mi210.html>
 
@@ -76,9 +77,15 @@ rocm-smi # checks existence of GPU
 
 `--exclude=ga004` ensures you are allocated an MI210 node within the cosma8-shm2 partition (ga004 has an MI100).
 
+The AMD ROCm stack can be loaded from the `hipcc` module on cosma.
+To load this module, check available versions with:
+```module av hipcc```
+Then load the desired version with:
+```module load hipcc/VERSION```
+
+If your codebase is based on CUDA, you can convert this to HIP using the `hipify` script provided with ROCm.
+
 ### Restrictions
 
 - Maximum wall time: 3 days
 - Nodes are non-exclusive by default (shared with other users). Use `--exclusive` if you require the entire node
-- The AMD ROCm software stack is installed. ROCm 6.3.0 is available at `/opt/rocm-6.3.0/bin/hipcc`
-- CUDA code must be converted to HIP using the `hipify` script provided with ROCm
