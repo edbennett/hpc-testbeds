@@ -43,6 +43,7 @@ The MI300X node has 8x GPUs.
 
 ### Documentation
 
+- <https://cosma.readthedocs.io/en/latest/amdgpu.html#mi300x>
 - <https://cosma.readthedocs.io/en/latest/gpu.html#mi300x>
 - <https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html>
 
@@ -63,8 +64,6 @@ Contact cosma-support@durham.ac.uk for any questions.
 
 ### Usage
 
-### Usage
-
 Jobs are submitted via Slurm to the `mi300x` partition:
 ```bash
 #!/bin/bash
@@ -81,8 +80,15 @@ For interactive access:
 srun -p mi300x -A do018 -t 10 --pty /bin/bash
 ```
 
+The AMD ROCm stack can be loaded from the `hipcc` module on cosma.
+To load this module, check available versions with:
+```module av hipcc```
+Then load the desired version with:
+```module load hipcc/VERSION```
+
+If your codebase is based on CUDA, you can convert this to HIP using the `hipify` script provided with ROCm.
+
+
 ### Restrictions
 
 - Nodes are non-exclusive by default (shared with other users). Use `--exclusive` if you require the entire node
-- The AMD ROCm software stack is installed. ROCm 7.2.0 is available at `/opt/rocm-7.2.0/bin/hipcc`
-- CUDA code must be converted to HIP using the `hipify` script provided with ROCm
