@@ -24,7 +24,7 @@ partitions:
       iterations: 100
       precision: FP64
 interconnects:
-reference: https://cosma.readthedocs.io/en/latest/gpu.html
+reference: https://cosma.readthedocs.io/en/latest/amdgpu.html
 ---
 
 ## COSMA MI100
@@ -39,6 +39,7 @@ The MI100 node is a GPU testbed within COSMA.
 
 ### Documentation
 
+- <https://cosma.readthedocs.io/en/latest/amdgpu.html>
 - <https://cosma.readthedocs.io/en/latest/gpu.html>
 - <https://www.amd.com/en/products/accelerators/instinct/mi100.html>
 
@@ -73,9 +74,15 @@ rocm-smi
 
 `--nodelist=ga004` ensures allocation the MI100 node (ga005/ga006 have MI210s).
 
+The AMD ROCm stack can be loaded from the `hipcc` module on cosma.
+To load this module, check available versions with:
+```module av hipcc```
+Then load the desired version with:
+```module load hipcc/VERSION```
+
+If your codebase is based on CUDA, you can convert this to HIP using the `hipify` script provided with ROCm.
+
 ### Restrictions
 
 - Maximum wall time: 3 days
 - Nodes are non-exclusive by default (shared with other users). Use `--exclusive` if you require the entire node
-- The AMD ROCm software stack is installed. ROCm 6.3.0 is available at `/opt/rocm-6.3.0/bin/hipcc`
-- CUDA code must be converted to HIP using the `hipify` script provided with ROCm
