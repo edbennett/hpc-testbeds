@@ -102,4 +102,3 @@ Then load the desired version with:
 
 - Maximum wall time: 3 days
 - Nodes are non-exclusive by default (shared with other users). Use `--exclusive` if you require the entire node
-- CUDA is available via `module load nvhpc/25.11`
