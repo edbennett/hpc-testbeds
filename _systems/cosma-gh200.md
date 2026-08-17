@@ -73,7 +73,7 @@ Contact cosma-support@durham.ac.uk for any questions.
 
 ### Usage
 
-For gn002, connect directly via SSH from a login node: `ssh mad06`
+For gn002, connect directly via SSH from a login node: `ssh gn002`
 
 For gn003, jobs are submitted via Slurm to the `gracehopper` partition:
 ```bash
@@ -86,9 +86,22 @@ nvidia-smi # checks existence of GPU
 ./gpu_program_to_run
 ```
 
+CUDA is available in `/usr/local/cuda-VERSION`.
+
+nvidia-specific compilers and tools can be loaded from the `nvhpc` module on cosma.
+To load this module, check available versions with:
+```module av nvhpc```
+Then load the desired version with:
+```module load nvhpc/VERSION```
+
+Grace-Hopper nodes may require alternative toolchains.  
+These can be found in `/opt/rh/`
+
+Toolchains can be selected when compiling with nvc++ like so:
+```nvc++ --std=c++17 --gcc-toolchain=/opt/rh/gcc-toolset-15 main.cpp```
+
 ### Restrictions
 
 - Maximum wall time: 3 days
 - x86 binaries will not run. Code must be compiled on the node itself
 - No system cmake on nodes. Install cmake using `pip3 install --user cmake` and add `$HOME/.local/bin` to PATH
-- CUDA is available at `/usr/local/cuda-13.0/bin/nvcc`

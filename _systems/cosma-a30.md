@@ -32,7 +32,7 @@ reference: https://cosma.readthedocs.io/en/latest/gpu.html#dine2
 
 COSMA (The Compute Optimised System for Modelling and Analysis) is a High Performance Computing facility hosted at Durham University, operated by the Institute for Computational Cosmology on behalf of DiRAC.
 
-The A30 nodes form the DINE2 cluster, a GPU testbed within COSMA.
+The A30 nodes form part of the DINE2 cluster, a GPU testbed within COSMA.
 
 | Node | RAM | CPU | Access |
 |------|-----|-----|--------|
@@ -42,6 +42,7 @@ The A30 nodes form the DINE2 cluster, a GPU testbed within COSMA.
 
 ### Documentation
 
+- <https://cosma.readthedocs.io/en/latest/dine2.html>
 - <https://cosma.readthedocs.io/en/latest/gpu.html#dine2>
 - <https://www.nvidia.com/en-gb/data-center/products/a30-gpu/>
 
@@ -73,8 +74,14 @@ nvidia-smi
 ./gpu_program_to_run
 ```
 
+nvidia-specific compilers and tools can be loaded from the `nvhpc` module on cosma.
+To load this module, check available versions with:
+```module av nvhpc```
+Then load the desired version with:
+```module load nvhpc/VERSION```
+
+
 ### Restrictions
 
 - dine2 nodes mount `/dine` not `/cosma5`. Copy binaries to `/dine/data/<project>/<username>/`.
 - Maximum wall time: 3 days
-- CUDA is available via `module load nvhpc/25.11`
