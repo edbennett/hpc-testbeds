@@ -75,6 +75,30 @@ layout: default
           </ul>
           {% endif %}
           <li>Interconnects: {{ page.interconnects | join: ", " }}</li>
+          {% if page.profilers.size > 0 or page.modules or page.software-installation.size > 0 %}
+          <li>Software:</li>
+          <ul>
+            {% if page.profilers.size > 0 %}
+            <li>Profilers</li>
+            <ul>
+            {% for profiler in page.profilers %}
+              <li>{{ profiler }}</li>
+            {% endfor %}
+            {% endif %}
+            </ul>
+            {% if page.modules %}
+            <li>Module environment: {{ page.modules }}</li>
+            {% endif %}
+            {% if page.software-installation.size > 0 %}
+            <li>Software installation methods</li>
+            <ul>
+            {% for method in page.software-installation %}
+              <li>{{ method }}</li>
+            {% endfor %}
+            {% endif %}
+            </ul>
+            {% endif %}
+          </ul>
         </ul>
 
         <div class="e-content">

@@ -20,6 +20,11 @@ partitions:
   accelerator-count: 4
   manufacturer: "Atos"
   scheduler: "Slurm"
+profilers:
+- NVIDIA Nsight
+modules: Environment Modules 4.1.4
+software-installation:
+- Manual installation
 interconnects:
 - Infiniband HDR
 - NVLink

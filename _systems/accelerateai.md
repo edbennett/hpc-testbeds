@@ -14,6 +14,14 @@ partitions:
   accelerator-count: 8
   manufacturer: "Atos"
   scheduler: "Slurm"
+profilers:
+- NVIDIA Nsight
+- Intel VTune/Advisor
+modules: Lmod 9.2
+software-installation:
+- Manual installation
+- Spack
+- EasyBuild
 interconnects:
 - Infiniband HDR
 - NVLink

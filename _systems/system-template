@@ -22,6 +22,13 @@ partitions: <!-- Duplicate the following block for each partition your system ha
       array_size:
       iterations:
   - <!-- Additional benchmarks can be added by repeating the above block. -->
+profilers:
+- <!-- Add a list of CPU and GPU profilers available on the system, each preceded by a hyphen -->
+modules: <!-- If the system provides loadable modules for software, give the name and version of the software used for this here. Common options are "Environment Modules" and "Lmod". -->
+software-installation:
+- <!-- Add a list of tools used or available for software installation here. -->
+- <!-- Common options include "Manual installation", "Spack", and "EasyBuild". -->
+- <!-- Only specify "Manual installation" if this is used for system-provided packages; it is always assumed that users can perform their own manual builds. -->
 interconnects:
 - <!-- Add a list of interconnects present in the system, each preceded by a hyphen. -->
 - <!-- This includes both inter-GPU (e.g. NVLink) and inter-node (e.g. Infiniband) interconnects
