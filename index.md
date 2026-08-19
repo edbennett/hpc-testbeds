@@ -165,6 +165,12 @@ let table = new DataTable(
                     .each(function (d, j) {
                         select.add(new Option(d));
                     });
+
+                // Set default filter
+                if (column.header().innerText.startsWith('Status')) {
+                  select.value = "In service";
+                  column.search(select.value, {exact: true}).draw();
+                }
             });
     }
   }
