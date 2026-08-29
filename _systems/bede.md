@@ -10,24 +10,31 @@ funders:
 - EPSRC
 partitions:
 - nodes: 32
-  accelerator: Tesla V100 32G
+  accelerator: NVIDIA Tesla V100 32G
   accelerator-count: 4
   manufacturer: IBM
   scheduler: Slurm
 - nodes: 4
-  accelerator: Tesla T4 16G
+  accelerator: NVIDIA Tesla T4 16G
   accelerator-count: 4
   manufacturer: IBM
   scheduler: Slurm
-- nodes: 7
-  accelerator: H100 96GB
+- nodes: 6
+  accelerator: NVIDIA H100 96GB
   accelerator-count: 1
-  manufacturer: gh001-gh006 Vespertec, gh007 SuperMicro
+  manufacturer: Vespertec
   scheduler: Slurm
+  name: H100 Verpertec
 - nodes: 1
-  accelerator: H100 144GB
+  accelerator: NVIDIA H100 96GB
+  accelerator-count: 1
+  manufacturer: Supermicro
+  scheduler: Slurm
+  name: H100 Supermicro
+- nodes: 1
+  accelerator: NVIDIA H100 144GB
   accelerator-count: 2
-  manufacturer: gh008 SuperMicro
+  manufacturer: Supermicro
   scheduler: Slurm
 interconnects:
 - InfiniBand EDR
